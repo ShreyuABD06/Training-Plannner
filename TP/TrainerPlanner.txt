@@ -1,0 +1,7 @@
+create table instructor(instId int auto_increment primary key,name varchar(20),email varchar(100) unique,yearofexp int);
+
+create table trainee(tId int auto_increment primary key,name varchar(20),qualification varchar(10),email varchar(100) unique,contry varchar(20));
+
+create table traineeprogram(tpId int auto_increment primary key,tid int,progId int,foreign key(tId) references trainee(tId),foreign key(progId) references programs(progId));
+
+create table programs(progId int auto_increment primary key,title varchar(100) not null,location varchar(50) not null,startDate date,endDate date,fee double not null,instId int,foreign key(instId) references instructor(instId));
